@@ -20,11 +20,12 @@ setwd("~/Desktop/R_class/exp_data/")
 png(filename = "plot3.png")
 
 # create plot, faceted by type
-g <- ggplot(baltimoreTotal, aes(x=year, y=Emissions))
-gbasics <- g + geom_line() + geom_point() + facet_grid(.~type)
+g <- ggplot(baltimoreTotal, aes(x=year, y=Emissions, color=type))
+gbasics <- g + geom_line() + geom_point() 
 gtotal <- gbasics +theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     labs(ylab(expression('Total PM'[2.5]*' emission (tons)')))+
     ggtitle("Emission trends by type for Baltimore")
 gtotal
 
 dev.off()
+
